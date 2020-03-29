@@ -106,6 +106,7 @@ class RayWenderlichIE(InfoExtractor):
             headers = {
                 'Referer': url,
                 'X-Requested-With': 'XMLHttpRequest',
+                'Authorization':  f"Token {self._downloader.params.get('videopassword')}"
             }
             csrf_token = self._html_search_meta(
                 'csrf-token', webpage, 'csrf token', default=None)
